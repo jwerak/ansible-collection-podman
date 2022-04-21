@@ -17,6 +17,6 @@
 # Ensure service is started
 - name: Ensure service {{ podman_app_service_name }} is enabled and started
   ansible.builtin.service:
-    name: {{ podman_app_service_name }}
+    name: "{{ podman_app_service_name }}"
     enabled: true
     state: started
