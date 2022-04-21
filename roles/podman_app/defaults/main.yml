@@ -5,3 +5,9 @@ podman_app_service_name: "service-name"
 podman_app_port_expose: 80
 podman_app_container_image_base: quay.io/rhsacz/ed-app
 podman_app_container_image_tag: 0.0.1
+
+# Example specify env vars for container
+# podman_app_env_vars: 
+#   - name: ENVIRONMENT
+#     value: dev
+podman_app_env_vars: []

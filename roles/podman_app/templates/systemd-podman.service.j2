@@ -9,7 +9,7 @@ Environment=PODMAN_SYSTEMD_UNIT=%n
 Restart=on-failure
 TimeoutStopSec=20
 ExecStartPre=/bin/rm -f %t/%n.ctr-id
-ExecStart=/usr/bin/podman run --cidfile=%t/%n.ctr-id --cgroups=no-conmon --rm --sdnotify=conmon -d -p {{ podman_app_port_expose }}:{{ podman_app_port_internal }} {{ podman_app_container_image }}
+ExecStart=/usr/bin/podman run --cidfile=%t/%n.ctr-id --cgroups=no-conmon --rm --sdnotify=conmon -d {% for env in podman_app_env_vars %}-e {{ env.name }}={{ env.value }} {% endfor %} -p {{ podman_app_port_expose }}:{{ podman_app_port_internal }} {{ podman_app_container_image }}
 ExecStop=/usr/bin/podman stop --ignore --cidfile=%t/%n.ctr-id
 ExecStopPost=/usr/bin/podman rm -f --ignore --cidfile=%t/%n.ctr-id
 Type=notify
