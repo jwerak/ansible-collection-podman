@@ -3,7 +3,7 @@
 
 - name: Ensure SystemD dir exists
   ansible.builtin.file:
-    state: dir
+    state: directory
     path: "{{ podman_app_systemd_dir }}"
     mode: 0755
 
