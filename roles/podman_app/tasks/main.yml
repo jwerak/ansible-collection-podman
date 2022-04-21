@@ -9,7 +9,7 @@
 
 - name: Systemd Unit for podman application is present
   ansible.builtin.template:
-    src: systemd-podman-app.service.jinja
+    src: systemd-podman-app.service.j2
     dest: "{{ podman_app_systemd_dir }}/{{ podman_app_service_name }}.service"
     mode: 0755
   notify: Reload SystemD and restart service {{ podman_app_service_name }}

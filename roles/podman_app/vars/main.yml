@@ -1,4 +1,7 @@
 ---
 # vars file for podman-app
 
-podman_app_systemd_dir: "/usr/share/systemd/system/"
+podman_app_systemd_dir: '/usr/share/systemd/system/'
+
+podman_app_port_internal: 8080
+podman_app_container_image: "{{ podman_app_container_image_base }}:{{ podman_app_container_image_tag }}"
