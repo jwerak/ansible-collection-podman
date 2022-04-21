@@ -1,0 +1,4 @@
+---
+# defaults file for podman-app
+
+podman_app_service_name: "service-name"

@@ -1,0 +1,4 @@
+---
+# vars file for podman-app
+
+podman_app_systemd_dir: "/usr/share/systemd/system/"

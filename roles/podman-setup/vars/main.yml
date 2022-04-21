@@ -1,0 +1,4 @@
+---
+# vars file for podman-setup
+podman_setup_packages: 
+  - podman

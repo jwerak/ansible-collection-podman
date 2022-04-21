@@ -1,3 +1,3 @@
-# Ansible Collection Podman
+# Ansible Collection - jwerak.podman
 
-Manage podman installation and creation of containers and pods.
+Documentation for the collection.

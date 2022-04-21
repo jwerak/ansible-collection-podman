@@ -1,0 +1,7 @@
+---
+# tasks file for podman-setup
+
+- name: ensure podman is installed
+  ansible.builtin.package:
+    name: "{{ podman_setup_packages }}"
+    state: present

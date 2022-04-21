@@ -1,0 +1,21 @@
+---
+# tasks file for podman-app
+
+- name: Ensure SystemD dir exists
+  ansible.builtin.file:
+    state: dir
+    path: "{{ podman_app_systemd_dir }}"
+    mode: 0755
+
+- name: Systemd Unit for podman application is present
+  ansible.builtin.template:
+    src: systemd-podman-app.service.jinja
+    dest: "{{ podman_app_systemd_dir }}/{{ podman_app_service_name }}.service"
+    mode: 0755
+  notify: Reload SystemD and restart service {{ podman_app_service_name }}
+
+# Ensure service is started
+- name: Ensure service {{ podman_app_service_name }} is enabled and started
+  ansible.builtin.service:
+    enabled: true
+    state: started
