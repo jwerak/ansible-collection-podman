@@ -14,6 +14,11 @@
     mode: 0755
   notify: Reload SystemD and restart service {{ podman_app_service_name }}
 
+- name: Download container image to speed up service start
+  containers.podman.podman_image:
+    name: "{{ podman_app_container_image_base }}"
+    tag: "{{ podman_app_container_image_tag }}"
+
 # Ensure service is started
 - name: Ensure service {{ podman_app_service_name }} is enabled and started
   ansible.builtin.service:
