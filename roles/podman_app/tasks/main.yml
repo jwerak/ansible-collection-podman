@@ -12,7 +12,7 @@
     src: systemd-podman.service.j2
     dest: "{{ podman_app_systemd_dir }}/{{ podman_app_service_name }}.service"
     mode: 0755
-  notify: Reload SystemD and restart service {{ podman_app_service_name }}
+  notify: Reload SystemD and restart application service
 
 - name: Download container image to speed up service start
   containers.podman.podman_image:

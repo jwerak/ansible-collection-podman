@@ -1,6 +1,6 @@
 ---
 # handlers file for podman-app
-- name: Reload SystemD and restart service {{ podman_app_service_name }}
+- name: Reload SystemD and restart application service
   ansible.builtin.systemd:
     service: "{{ podman_app_service_name }}"
     state: restarted
